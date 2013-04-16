@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Macro</title>
+		<style>
+			td.ok {
+				background: #dfffbf;
+			}
+
+			td.wrong {
+				background: #ffbfbf;
+			}
+
+			td.unknown {
+				background: #ffffbf;
+			}
+		</style>
+	</head>
+	<body>
+		<table>
+			<thead>
+				<tr>
+					<th>Compiler</th>
+					<th>-O0</th>
+					<th>-O1</th>
+					<th>-O2</th>
+					<th>-O3</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>GCC</th>
+					<td class="wrong"><code>10 20 10 20 10 20 10 20 10 20</code></td>
+					<td class="wrong"><code>10 20 10 20 10 20 10 20 10 20</code></td>
+					<td class="wrong"><code>10 20 30 40 50 60 70 80 90 100</code></td>
+					<td class="wrong"><code>10 20 30 40 50 60 70 80 90 100</code></td>
+				</tr>
+				<tr>
+					<th>CLANG</th>
+					<td class="wrong"><code>10 20 10 20 10 20 10 20 10 20</code></td>
+					<td class="ok"><code>10 20 10 20 30 40 50 60 70 80</code></td>
+					<td class="ok"><code>10 20 10 20 30 40 50 60 70 80</code></td>
+					<td class="ok"><code>10 20 10 20 30 40 50 60 70 80</code></td>
+				</tr>
+				<tr>
+					<th>TCC</th>
+					<td class="ok"><code>10 20 10 20 30 40 50 60 70 80</code></td>
+					<td class="ok"><code>10 20 10 20 30 40 50 60 70 80</code></td>
+					<td class="ok"><code>10 20 10 20 30 40 50 60 70 80</code></td>
+					<td class="ok"><code>10 20 10 20 30 40 50 60 70 80</code></td>
+				</tr>
+				<tr>
+					<th>PCC</th>
+					<td class="wrong"><code>10 20 10 20 10 20 10 20 10 20</code></td>
+					<td class="wrong"><code>10 20 10 20 10 20 10 20 10 20</code></td>
+					<td class="wrong"><code>10 20 10 20 10 20 10 20 10 20</code></td>
+					<td class="wrong"><code>10 20 10 20 10 20 10 20 10 20</code></td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>
