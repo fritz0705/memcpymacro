@@ -1,0 +1,7 @@
+CLANG-*
+GCC-*
+PCC-*
+TCC-*
+ICC-*
+.*.sw?
+.sw?
